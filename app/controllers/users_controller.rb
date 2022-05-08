@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name))
+    @user = User.new(params.require(:user).permit(:name, :email))
     if @user.save
       redirect_to users_index_url
     else
