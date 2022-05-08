@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_index_url
     else
+      @user = User.new
       render 'new'
     end
   end
