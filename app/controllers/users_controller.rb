@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:name, :email))
     if @user.save
-      redirect_to users_index_url
+      redirect_to users_url
     else
       @user = User.new
       render 'new'
