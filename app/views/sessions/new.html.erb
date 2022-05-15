@@ -1,0 +1,20 @@
+<div>
+  <div class="text-center pt-40 pb-20">
+    <h1 class="text-2xl">LINE_clone_app</h1>
+  </div>
+  <div class="border-2 text-center w-[400px] py-4 ml-auto mr-auto">
+    <%= form_for(:session, url: sessions_create_path)do |f| %>
+      <div class="py-4">
+        <%= f.label :email, class: "inline-block text-left w-[150px]" %>
+        <%= f.email_field :email, class: "border" %>
+      </div>
+      <div class="py-4">
+        <%= f.label :password, 'パスワード', class: "inline-block text-left w-[150px]" %>
+        <%= f.password_field :password, class: "border" %>
+      </div>
+      <div class="py-4">
+        <%= f.submit 'ログイン', class: "bg-green-500 text-white px-20 rounded" %>
+      </div>
+    <% end %>
+  </div>
+</div>
