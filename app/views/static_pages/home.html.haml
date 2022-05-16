@@ -5,3 +5,7 @@
     %a.bg-green-500.font-semibold.text-white.py-4.px-40.rounded ログイン
   .text-center.h-18.py-6
     %a.border.font-semibold.py-4.px-40.rounded{:href => "/users/new"} 新規登録
+  .text-center.h-18.py-6
+    = link_to 'グループ作成', new_group_path, class: 'bg-blue-500 text-white rounded font-semibold py-4 px-40'
+  .text-center.h-18.py-6
+    = link_to 'グループ一覧', groups_path, class: 'bg-blue-500 text-white rounded bg-blue-500 text-white rounded font-semibold py-4 px-40'
