@@ -1,0 +1,7 @@
+%div
+  .text-center.pt-40.pb-32
+    %h1.text-2xl ユーザー一覧
+  .border.ml-auto.mr-auto{:class => "w-[400px]"}
+    - @users.each do |user|
+      .border.pl-4
+        = user.name

@@ -12,6 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2022_05_11_115014) do
 
+  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_user_groups_on_group_id"
+    t.index ["user_id"], name: "index_user_groups_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -20,4 +36,6 @@ ActiveRecord::Schema.define(version: 2022_05_11_115014) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "user_groups", "groups"
+  add_foreign_key "user_groups", "users"
 end
