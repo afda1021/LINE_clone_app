@@ -1,13 +1,19 @@
 %div
-  .text-center.pt-40.pb-32
+  .text-center.pt-40.pb-20
     %h1.text-2xl ユーザー新規作成
-  .border-2.text-center.py-4.ml-auto.mr-auto{:class => "w-[400px]"}
+  .border-2.text-center.py-4.ml-auto.mr-auto{:class => 'w-[400px]'}
     = form_with model: @user do |f|
       .py-4
-        = f.label :name, '名前'
-        = f.text_field :name, class: "border"
+        = f.label :name, '名前', class: 'inline-block text-left w-[150px]'
+        = f.text_field :name, class: 'border'
       .py-4
-        = f.label :email, 'email'
-        = f.text_field :email, class: "border"
+        = f.label :email, class: 'inline-block text-left w-[150px]'
+        = f.text_field :email, class: 'border'
       .py-4
-        = f.submit '送信', class: "font-semibold px-20 rounded"
+        = f.label :password, 'パスワード', class: 'inline-block text-left w-[150px]'
+        = f.text_field :password, class: 'border'
+      .py-4
+        = f.label :password_confirmation, 'パスワード(再入力)', class: 'inline-block text-left w-[150px]'
+        = f.text_field :password_confirmation, class: 'border'
+      .py-4
+        = f.submit '送信', class: 'font-semibold px-20 rounded'

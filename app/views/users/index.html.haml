@@ -5,3 +5,5 @@
     - @users.each do |user|
       .border.pl-4
         = user.name
+  - if logged_in?
+    = link_to 'ログアウト', sessions_destroy_path, method: :delete
