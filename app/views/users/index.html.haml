@@ -6,4 +6,4 @@
       .border.pl-4
         = user.name
   - if logged_in?
-    = link_to 'ログアウト', sessions_destroy_path, method: :delete
+    = link_to 'ログアウト', logout_path, method: :delete
