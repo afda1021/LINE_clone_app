@@ -8,12 +8,12 @@
         = f.text_field :name, class: 'border'
       .py-4
         = f.label :email, class: 'inline-block text-left w-[150px]'
-        = f.text_field :email, class: 'border'
+        = f.email_field :email, class: 'border'
       .py-4
         = f.label :password, 'パスワード', class: 'inline-block text-left w-[150px]'
-        = f.text_field :password, class: 'border'
+        = f.password_field :password, class: 'border'
       .py-4
         = f.label :password_confirmation, 'パスワード(再入力)', class: 'inline-block text-left w-[150px]'
-        = f.text_field :password_confirmation, class: 'border'
+        = f.password_field :password_confirmation, class: 'border'
       .py-4
         = f.submit '送信', class: 'font-semibold px-20 rounded'

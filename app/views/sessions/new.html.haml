@@ -1,0 +1,13 @@
+%div
+  .text-center.pt-40.pb-20
+    %h1.text-2xl LINE_clone_app
+  .border-2.text-center.py-4.ml-auto.mr-auto{:class => 'w-[400px]'}
+    = form_with model: @session do |f|
+      .py-4
+        = f.label :email, class: 'inline-block text-left w-[150px]'
+        = f.email_field :email, class: 'border'
+      .py-4
+        = f.label :password, 'パスワード', class: 'inline-block text-left w-[150px]'
+        = f.password_field :password, class: 'border'
+      .py-4
+        = f.submit 'ログイン', class: 'bg-green-500 text-white px-20 rounded'
