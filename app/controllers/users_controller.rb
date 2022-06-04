@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # TODO: ログイン機能実装マージ後current_userに修正
+    @current_user = User.first
+    @friends = @current_user.matchers
   end
 
   def new

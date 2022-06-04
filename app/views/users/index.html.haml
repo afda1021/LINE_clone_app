@@ -1,7 +1,11 @@
 %div
   .text-center.pt-40.pb-32
     %h1.text-2xl ユーザー一覧
-  .border.ml-auto.mr-auto{:class => "w-[400px]"}
-    - @users.each do |user|
+  .ml-auto.mr-auto{:class => "w-[400px]"}
+    %p 自分
+    .border.pl-4
+      = @current_user.name
+    %p 友達
+    - @friends.each do |friend|
       .border.pl-4
-        = user.name
+        = friend.name
