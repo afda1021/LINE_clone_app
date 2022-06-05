@@ -1,7 +1,8 @@
 class GroupsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :new]
+
   def index
-    # ログインユーザーのグループのみを表示したい
-    @groups = tmp_user.groups
+    @groups = current_user.groups
   end
 
   def new
@@ -23,10 +24,5 @@ class GroupsController < ApplicationController
 
     def group_params
       params.require(:group).permit(:name, :description, user_ids: [])
-    end
-
-    # ログイン機能ができるまで仮で作成。
-    def tmp_user
-      User.first
     end
 end

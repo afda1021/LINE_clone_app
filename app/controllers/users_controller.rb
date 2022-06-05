@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:index]
+
   def index
     @users = User.all
   end
@@ -8,12 +10,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name, :email))
-    if @user.save
+    user = User.new(user_params)
+    if user.save
+      log_in user
       redirect_to users_url
     else
       @user = User.new
       render 'new'
     end
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 end
