@@ -9,3 +9,5 @@
     - @friends.each do |friend|
       .border.pl-4
         = friend.name
+  - if logged_in?
+    = link_to 'ログアウト', logout_path, method: :delete
