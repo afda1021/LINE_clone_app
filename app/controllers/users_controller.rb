@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index]
 
   def index
-    # TODO: ログイン機能実装マージ後current_userに修正
-    @current_user = User.first
+    @current_user = current_user
     @friends = @current_user.matchers
   end
 
