@@ -21,6 +21,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    if defined?(params[:search_param][:email])
+      @user = User.find_by(email: params[:search_param][:email])
+    end
+  end
+
   private
 
     def user_params
