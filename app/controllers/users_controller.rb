@@ -27,6 +27,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def application
+    friendship = Friendship.new(follower_id: current_user.id, followed_id: params[:user_id])
+    if friendship.save
+      redirect_to users_url
+    else
+      render 'search'
+    end
+  end
+
   private
 
     def user_params

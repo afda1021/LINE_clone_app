@@ -13,4 +13,4 @@
         .inline-block.mr-auto{:class => 'w-[320px]'}
           = @user.name
         .inline-block.px-2.text-right.bg-gray-200.rounded
-          = link_to '追加'
+          = link_to '追加', application_users_path(user_id: @user.id), method: :post
