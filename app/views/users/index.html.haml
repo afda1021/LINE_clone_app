@@ -5,10 +5,11 @@
     %p 自分
     .border.pl-4
       = @current_user.name
-    %p 友達
-    - @friends.each do |friend|
-      .border.pl-4
-        = friend.name
+    - if @friends.present?
+      %p 友達
+      - @friends.each do |friend|
+        .border.pl-4
+          = friend.name
     .text-center.h-18.py-6
       = link_to '友達追加', search_users_path, class: 'bg-blue-500 text-white rounded bg-blue-500 rounded py-2 px-20'
   - if logged_in?

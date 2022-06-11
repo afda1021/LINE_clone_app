@@ -14,6 +14,10 @@ class User < ApplicationRecord
   # TODO: passwordのvalidationエラーを解決
   # validates :password, presence: true, length: { minimum: 6 }
 
+  def follow(other_user)
+    active_friendship.create(followed_id: other_user.id)
+  end
+
   def matchers
     following & followers
   end
