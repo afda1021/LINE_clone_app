@@ -9,7 +9,10 @@
       %p 友達リクエスト
       - @follow_request_users.each do |follow_request_user|
         .border.pl-4
-          = follow_request_user.name
+          .inline-block.mr-auto{:class => 'w-[329px]'}
+            = follow_request_user.name
+          .inline-block.px-2.text-right.bg-gray-200.rounded
+            = link_to '追加', user_friendships_path(user_id: follow_request_user.id), method: :post
     - if @friends.present?
       %p 友達
       - @friends.each do |friend|
