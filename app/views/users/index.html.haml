@@ -5,6 +5,11 @@
     %p 自分
     .border.pl-4
       = @current_user.name
+    - if @follow_request_users.present?
+      %p 友達リクエスト
+      - @follow_request_users.each do |follow_request_user|
+        .border.pl-4
+          = follow_request_user.name
     - if @friends.present?
       %p 友達
       - @friends.each do |friend|

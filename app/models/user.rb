@@ -18,6 +18,20 @@ class User < ApplicationRecord
     active_friendship.create(followed_id: other_user.id)
   end
 
+  def following?(other_user)
+    active_friendship.find_by(followed_id: other_user.id)
+  end
+
+  def follow_requests
+    follow_request_users = []
+    followers.each do |follower|
+      if !following?(follower)
+        follow_request_users.push(follower)
+      end
+    end
+    return follow_request_users
+  end
+
   def matchers
     following & followers
   end

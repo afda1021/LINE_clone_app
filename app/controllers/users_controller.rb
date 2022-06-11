@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @current_user = current_user
+    @follow_request_users = current_user.follow_requests
     @friends = @current_user.matchers
   end
 
