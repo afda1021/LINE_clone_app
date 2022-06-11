@@ -23,8 +23,11 @@ class UsersController < ApplicationController
   end
 
   def search
-    if defined?(params[:search_param][:email])
-      @user = User.find_by(email: params[:search_param][:email])
+    if defined?(params[:search_param][:email]) && params[:search_param][:email].present?
+      searched_user = User.find_by(email: params[:search_param][:email])
+       if searched_user != current_user && !current_user.following.find {|u| u==searched_user}
+        @searched_user = searched_user
+       end
     end
   end
 
