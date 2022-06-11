@@ -4,7 +4,7 @@ class FriendshipsController < ApplicationController
     if current_user.follow(user)
       redirect_to users_url
     else
-      render 'search'
+      redirect_to search_users_path
     end
   end
 end
