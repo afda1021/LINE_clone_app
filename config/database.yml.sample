@@ -53,3 +53,4 @@ production:
   database: line_clone_production
   username: line_clone
   password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
