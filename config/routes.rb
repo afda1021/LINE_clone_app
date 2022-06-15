@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   root 'static_pages#home'
-  resources :users
+  resources :users do
+    get :search, on: :collection
+    post :search, on: :collection
+    resources :friendships, only: %i[create] 
+  end
   resources :groups, only: %i[index new create]
 end

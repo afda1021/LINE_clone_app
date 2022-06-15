@@ -1,9 +1,24 @@
 %div
   .text-center.pt-40.pb-32
     %h1.text-2xl ユーザー一覧
-  .border.ml-auto.mr-auto{:class => "w-[400px]"}
-    - @users.each do |user|
-      .border.pl-4
-        = user.name
+  .ml-auto.mr-auto{:class => "w-[400px]"}
+    %p 自分
+    .border.pl-4
+      = @current_user.name
+    - if @follow_request_users.present?
+      %p 友達リクエスト
+      - @follow_request_users.each do |follow_request_user|
+        .border.pl-4
+          .inline-block.mr-auto{:class => 'w-[329px]'}
+            = follow_request_user.name
+          .inline-block.px-2.text-right.bg-gray-200.rounded
+            = link_to '追加', user_friendships_path(user_id: follow_request_user.id), method: :post
+    - if @friends.present?
+      %p 友達
+      - @friends.each do |friend|
+        .border.pl-4
+          = friend.name
+    .text-center.h-18.py-6
+      = link_to '友達追加', search_users_path, class: 'bg-blue-500 text-white rounded bg-blue-500 rounded py-2 px-20'
   - if logged_in?
     = link_to 'ログアウト', logout_path, method: :delete
